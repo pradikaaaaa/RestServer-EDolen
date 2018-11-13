@@ -7,18 +7,18 @@ use Restserver\Libraries\REST_Controller;
 class Wisata extends REST_Controller{
     function __construct($config = 'rest') {
         parent::__construct($config);
-        $this->load->model('model_wisata');
+        $this->load->model('Model_Wisata');
         $this->load->database();
     }
 
     function index_get(){
         $id = $this->get('id_kategori');
         if($id == ''){
-            $data = $this->model_wisata->getAllWisata();
+            $data = $this->Model_Wisata->getAllWisata();
         }else{
-            $data = $this->model_wisata->getAllWisatabyKategori($id);
+            $data = $this->Model_Wisata->getAllWisatabyKategori($id);
         }
-        
+
         $this->response($data,200);
     }
 

@@ -7,7 +7,7 @@ use Restserver\Libraries\REST_Controller;
 class User extends REST_Controller{
     function __construct($config = 'rest') {
         parent::__construct($config);
-        $this->load->model('model_user');
+        $this->load->model('Model_User');
         $this->load->database();
     }
 
@@ -16,11 +16,11 @@ class User extends REST_Controller{
         $pass = $this->get('password');
 
         if($user == '' && $pass == ''){
-            $data = $this->model_user->getAllUser();
+            $data = $this->Model_User->getAllUser();
         }else{
-            $data = $this->model_user->getUsername($user,$pass);
+            $data = $this->Model_User->getUsername($user,$pass);
         }
-        
+
         $this->response($data,200);
     }
 
@@ -33,8 +33,8 @@ class User extends REST_Controller{
             'tanggal_lahir' => 'null',
             'status' => 'user'
         );
-        
-        $insert = $this->model_user->insertUser($data);
+
+        $insert = $this->Model_User->insertUser($data);
         if($insert){
     		$this->response($data,200);
     	}else{
@@ -52,7 +52,7 @@ class User extends REST_Controller{
             'tanggal_lahir' => $this->put('tanggal_lahir'),
             'status' => 'user'
         );
-        $update = $this->model_user->updateUser($id,$data);
+        $update = $this->Model_User->updateUser($id,$data);
         if($update){
     		$this->response($data,200);
     	}else{
@@ -62,7 +62,7 @@ class User extends REST_Controller{
 
     function index_delete(){
         $id = $this->delete('id_user');
-        $delete = $this->model_user->deleteUser($id);
+        $delete = $this->Model_User->deleteUser($id);
     	if($delete){
     		$this->response(array('status' => 'succes'),201);
     	}else{
