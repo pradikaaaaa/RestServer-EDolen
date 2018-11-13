@@ -7,7 +7,7 @@ use Restserver\Libraries\REST_Controller;
 class KategoriWisata extends REST_Controller{
     function __construct($config = 'rest') {
         parent::__construct($config);
-        $this->load->model('model_kategoriwisata');
+        $this->load->model('Model_KategoriWisata');
         $this->load->database();
     }
 
@@ -15,11 +15,11 @@ class KategoriWisata extends REST_Controller{
         $id = $this->get('id_kategori');
 
         if($id == ''){
-            $data = $this->model_kategoriwisata->getAllKategori();
+            $data = $this->Model_KategoriWisata->getAllKategori();
         }else{
-            $data = $this->model_kategoriwisata->getAllKategoribyId($id);
+            $data = $this->Model_KategoriWisata->getAllKategoribyId($id);
         }
-        $this->response($data,200);   
+        $this->response($data,200);
     }
 
 
@@ -27,7 +27,7 @@ class KategoriWisata extends REST_Controller{
         $data = array(
             'id_kategori' => $this->post('id_kategori'),
             'kategori_wisata' => $this->post('kategori_wisata'));
-        $insert = $this->model_kategoriwisata->insertKategori($data);
+        $insert = $this->Model_KategoriWisata->insertKategori($data);
         if($insert){
             $this->response($data,200);
         }else{
@@ -42,8 +42,8 @@ class KategoriWisata extends REST_Controller{
             'id_kategori' => $this->put('id_kategori'),
             'kategori_wisata' => $this->put('kategori_wisata'));
 
-       
-        $update = $this->model_kategoriwisata->updateKategori($id,$data);
+
+        $update = $this->Model_KategoriWisata->updateKategori($id,$data);
 
         if($update){
     		$this->response($data,200);
@@ -54,7 +54,7 @@ class KategoriWisata extends REST_Controller{
 
     function index_delete(){
         $id = $this->delete('id_kategori');
-        $delete = $this->model_kategoriwisata->deletekategori($id);
+        $delete = $this->Model_KategoriWisata->deletekategori($id);
     	if($delete){
     		$this->response(array('status' => 'succes'),201);
     	}else{
