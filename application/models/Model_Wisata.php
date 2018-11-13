@@ -32,6 +32,22 @@ class Model_Wisata extends CI_Model{
         return $data->result();
     }
 
+    public function insertWisata($data){
+        $insert = $this->db->insert('tbl_wisata',$data);
+        return $insert;
+    }
+
+    public function updateWisata($id,$data){
+        $this->db->where('id_wisata',$id);
+        $update = $this->db->update('tbl_wisata',$data);
+        return $update;
+    }
+
+    public function deleteWisata($id){
+        $this->db->where('id_wisata',$id);
+        $delete = $this->db->delete('tbl_wisata');
+        return $delete;
+    }
 
 
 

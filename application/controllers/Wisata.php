@@ -33,6 +33,44 @@ class Wisata extends REST_Controller{
             'latitude' => $this->post('latitude'),
             'image' => $this->post('image')
         );
+
+        $insert = $this->model_wisata->insertWisata($data);
+        if($insert){
+    		$this->response($data,200);
+    	}else{
+    		$this->response(array('status' => 'fail', 502));
+    	}
+    }
+
+    function index_put(){
+        $id = $this->put('id_wisata');
+        $data = array(
+            'id_wisata' => $this->put('id_wisata'),
+            'nama_wisata' => $this->put('nama_wisata'),
+            'id_kategori' => $this->put('id_kategori'),
+            'alamat' => $this->put('alamat'),
+            'deskripsi' => $this->put('deskripsi'),
+            'longitude' => $this->put('longitude'),
+            'latitude' => $this->put('latitude'),
+            'image' => $this->put('image')
+        );
+        $update = $this->model_wisata->updateWisata($id,$data);
+        if($update){
+    		$this->response($data,200);
+    	}else{
+    		$this->response(array('status'=>'fail',502));
+    	}
+    }
+
+    function index_delete(){
+        $id = $this->delete('id_wisata');
+        $this->db->where('id_wisata',$id);
+        $delete = $this->model_wisata->deleteWisata($id);
+        if($delete){
+    		$this->response(array('status' => 'succes'),201);
+    	}else{
+    		$this->response(array('status' => 'fail'),502);
+    	}
     }
 
 }
