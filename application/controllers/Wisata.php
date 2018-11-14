@@ -22,6 +22,12 @@ class Wisata extends REST_Controller{
         $this->response($data,200);
     }
 
+    function detaiWisata_get(){
+        $id = $this->get('id_wisata');
+        $data = $this->Model_Wisata->getDetailWisata($id);
+        $this->response($data,200);
+    }
+
     function index_post(){
         $data = array(
             'id_wisata' => $this->post('id_wisata'),
