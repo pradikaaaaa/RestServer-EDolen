@@ -21,6 +21,24 @@
 
         public function index_post()
         {
+            $data = array(
+                'nama_wisata'       => $this->post('nama_wisata'),
+                'id_kategori'       => $this->post('id_kategori'),
+                'alamat'            => $this->post('alamat'),
+                'deskripsi'         => $this->post('deskripsi'),
+                'longitude'         => $this->post('longitude'),
+                'latitude'          => $this->post('latitude'),
+                'image'             => $this->post('image'));
+                $insert = $this->db->insert('tbl_wisata', $data);
+                if ($insert) {
+                    $this->response($data, 200);
+                } else {
+                    $this->response(array('status' => 'fail', 502));
+            }
+        }
+
+        public function kategori_post()
+        {
             $kategori = $this->input->post('id_kategori');
             $this->db->select('*');
             $this->db->from('tbl_wisata as w');
