@@ -17,6 +17,7 @@
             $this->db->select('*');
             $this->db->from('tbl_user');
             $this->db->where('username',$this->input->post('username'));
+            $this->db->where('password',$this->input->post('password'));
             $query = $this->db->get();
             $row = $query->first_row();
 

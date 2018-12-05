@@ -19,10 +19,10 @@
                 'password'          => $this->post('password'),
                 'nama'              => $this->post('nama'),
                 'tanggal_lahir'     => $this->post('tanggal_lahir'),
-                'status'            => $this->post('status'));
+                'status'            => 'user');
                 $insert = $this->db->insert('tbl_user', $data);
                 if ($insert) {
-                    $this->response($data, 200);
+                    $this->response(array('status' => 'sukses', 'result' => $data, 'message' => 'Berhasil'), 200);
                 } else {
                     $this->response(array('status' => 'fail', 502));
             }
