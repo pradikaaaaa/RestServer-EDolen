@@ -27,8 +27,6 @@
                 return $this->response(array('status' => 'failed', 502));
             }
         }
-
-
     }
 
     /* End of file Login.php */

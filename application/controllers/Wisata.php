@@ -16,6 +16,7 @@
         public function index_get()
         {
             $this->db->select('*');
+            $this->db->order_by('nama_wisata', 'asc');
             $this->db->from('tbl_wisata');
             $query = $this->db->get()->result();
             $this->response(array('status' => 'sukses','result'=>$query, 200));
@@ -33,18 +34,18 @@
 
                 //$get_wisata = $this->db->query("SELECT * FROM wisata WHERE nama_wisata = '".$data['nama_wisata']."' ")->result();
 
-            
+
                 if(!empty($_FILES)){
-                    $config['upload_path']   = './assets/image'; 
-                    $config['allowed_types'] = 'gif|jpg|png'; 
-                    $config['max_size']      = 80000; 
-                    $config['max_width']     = 4400; 
+                    $config['upload_path']   = './assets/image';
+                    $config['allowed_types'] = 'gif|jpg|png';
+                    $config['max_size']      = 80000;
+                    $config['max_width']     = 4400;
                     $config['max_height']    = 3320;
                     $this->load->library('upload',$config);
                     if($this->upload->do_upload('image')){
                         //$upload_data = $this->upload->data('file_name');
 
-                        
+
                         $data['image'] = $this->upload->data('file_name');
                         $insert_image = "upload image success";
                     }else{
@@ -68,7 +69,7 @@
         public function kategori_post()
         {
             $kategori = $this->input->post('id_kategori');
-            $this->db->select('*');
+            $this->db->select('w.id_wisata, w.nama_wisata, w.id_kategori ,w.alamat, w.deskripsi, w.longitude ,w.latitude ,w.image');
             $this->db->from('tbl_wisata as w');
             $this->db->join('tbl_kategori as k', 'w.id_kategori = k.id_kategori');
             $this->db->where('w.id_kategori',$kategori);
