@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 13 Nov 2018 pada 04.01
--- Versi Server: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Dec 09, 2018 at 12:03 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,32 +23,31 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kategori`
+-- Table structure for table `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
   `id_kategori` int(11) NOT NULL,
-  `kategori_wisata` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL
+  `kategori_wisata` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbl_kategori`
+-- Dumping data for table `tbl_kategori`
 --
 
-INSERT INTO `tbl_kategori` (`id_kategori`, `kategori_wisata`) VALUES
-(1, 'Pantai'),
-(2, 'Taman'),
-(3, 'Alam'),
-(4, 'Taman Rekreasi Air'),
-(5, 'Wisata Malam'),
-(6, 'Wisata Rohani'),
-(7, 'Wisata Aalam'),
-(8, 'Wisata Jasmani');
+INSERT INTO `tbl_kategori` (`id_kategori`, `kategori_wisata`, `image`) VALUES
+(1, 'Pantai', 'pantai.png'),
+(2, 'Taman', 'taman.jpg'),
+(3, 'Alam', 'alam.jpg'),
+(4, 'Taman Rekreasi Air', 'wisata_air.jpg'),
+(5, 'Wisata Malam', 'DRAGONFLY_JAKARTA_best_clubbing.jpg'),
+(6, 'Wisata Rohani', 'GangMacan.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user`
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -63,16 +60,18 @@ CREATE TABLE `tbl_user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
 INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `nama`, `tanggal_lahir`, `status`) VALUES
-(1, 'admin', 'admin', 'adminstrator', NULL, 'admin');
+(1, 'admin', 'admin', 'adminstrator', NULL, 'admin'),
+(2, 'dio', 'dio', 'Dio Syahrizal', '1998-05-09', 'user'),
+(3, 'yahuya', 'yahuya', 'Yahya', '1998-05-11', 'user');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_wisata`
+-- Table structure for table `tbl_wisata`
 --
 
 CREATE TABLE `tbl_wisata` (
@@ -87,12 +86,15 @@ CREATE TABLE `tbl_wisata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbl_wisata`
+-- Dumping data for table `tbl_wisata`
 --
 
 INSERT INTO `tbl_wisata` (`id_wisata`, `nama_wisata`, `id_kategori`, `alamat`, `deskripsi`, `longitude`, `latitude`, `image`) VALUES
 (1, 'Hawai Water Park', 4, 'Perumahan Graha Kencana Raya, Jl. Raya Karanglo, Banjararum, Singosari, Karanglo, Banjararum, Singosari, Malang, Jawa Timur 65126', 'Hawaiian-themed park with many slides & water attractions, plus a food court, pool bar & playground.', -7.92326, 112.658205, NULL),
-(2, 'Alun Alun Merdeka Malang', 2, 'Jl. Merdeka Selatan, Kiduldalem, Klojen, Kota Malang, Jawa Timur 65119', 'Popular square in the heart of downtown featuring shade trees, walking paths & a central fountain.', NULL, NULL, NULL);
+(2, 'Alun Alun Merdeka Malang', 2, 'Jl. Merdeka Selatan, Kiduldalem, Klojen, Kota Malang, Jawa Timur 65119', 'Popular square in the heart of downtown featuring shade trees, walking paths & a central fountain.', NULL, NULL, NULL),
+(4, 'Taman Suls', 2, 'Malang', 'Luar biasa gaming', 0.123124, 0.431413, '32087415_2315388885155202_7377428220116729856_n.jpg'),
+(5, 'Alun Alun Malang', 4, 'Jl. Merdeka Selatan, Kiduldalem, Klojen, Kota Malang, Jawa Timur 65119', 'Alun-alun populer di pusat kota yang memiliki pohon rindang, jalan setapak, & air mancur di tengahnya.', 112.632003, -7.981653, 'alun_alun1.jpg'),
+(6, 'Villa Songgoriti', 6, 'Jl. Arumdalu, Songgokerto, Kec. Batu, Malang, Jawa Timur 65312', 'Mantap Gan', 112.506214, -7.863127, 'sgm.jpg');
 
 --
 -- Indexes for dumped tables
@@ -125,27 +127,26 @@ ALTER TABLE `tbl_wisata`
 -- AUTO_INCREMENT for table `tbl_kategori`
 --
 ALTER TABLE `tbl_kategori`
-  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_wisata`
 --
 ALTER TABLE `tbl_wisata`
-  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_wisata`
+-- Constraints for table `tbl_wisata`
 --
 ALTER TABLE `tbl_wisata`
   ADD CONSTRAINT `fk_KategoriWisata` FOREIGN KEY (`id_kategori`) REFERENCES `tbl_kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
