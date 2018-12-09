@@ -16,6 +16,14 @@
             $this->load->view('admin/index');
         }
 
+        public function data_server()
+        {
+            $this->load->library('Datatables');
+            $this->datatables
+                    ->select('nama_wisata , alamat, deskripsi, longitude, latitude, image')
+                    ->from('tbl_wisata');
+                    echo $this->datatables->generate();
+        }
     }
 
     /* End of file Admin.php */
