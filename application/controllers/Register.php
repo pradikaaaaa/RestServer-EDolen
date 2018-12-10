@@ -39,7 +39,7 @@
                 $this->db->where('id_user', $id_user);
                 $update = $this->db->update('tbl_user', $data);
                 if ($update) {
-                    $this->response($data, 200);
+                     $this->response(array('status' => 'sukses', 'result' => $data, 'message' => 'Berhasil'), 200);
                 } else {
                     $this->response(array('status' => 'fail', 502));
             }
