@@ -22,25 +22,21 @@
                     },
                     {
                         "targets":2,
-                        "data":"deskripsi",
-                    },
-                    {
-                        "targets":3,
                         "data":"longitude",
                     },
                     {
-                        "targets":4,
+                        "targets":3,
                         "data":"latitude",
                     },
                     {
-                        "targets":5,
+                        "targets":4,
                         "data":"image",
                         "render":function(data,type,full,meta){
                             return '<img src="<?=base_url()?>assets/image/'+data+'" width="100">';
                         }
                     },
                     {
-					"targets":6,
+					"targets":5,
 					"data":null,
 					"searchable":false,
 					"render":function(data,type,full,meta){
@@ -48,7 +44,7 @@
 					    }
 				    },
 				    {
-					"targets":7,
+					"targets":6,
 					"data":null,
 					"searchable":false,
 					"render":function(data,type,full,meta){
