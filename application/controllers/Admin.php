@@ -24,6 +24,9 @@
                     ->from('tbl_wisata');
                     echo $this->datatables->generate();
         }
+
+
+
     }
 
     /* End of file Admin.php */

@@ -20,12 +20,28 @@
                 'nama'              => $this->post('nama'),
                 'tanggal_lahir'     => $this->post('tanggal_lahir'),
                 'status'            => 'user');
+            
+            $get_user = $this->db->query("SELECT * FROM tbl_user WHERE username ='".$data['username']."' ")->result();
+            
+            $msg = "";
+            if(empty($get_user)){
+                
                 $insert = $this->db->insert('tbl_user', $data);
+                $msg="Berhasil Mendaftar";
+
                 if ($insert) {
-                    $this->response(array('status' => 'sukses', 'result' => $data, 'message' => 'Berhasil'), 200);
+                    $this->response(array('status' => 'sukses', 'result' => $data, 'message' => $msg));
                 } else {
-                    $this->response(array('status' => 'fail', 502));
+                    $msg = "Gagal Mendaftar";
+                    $this->response(array('status' => 'gagal', 'message' => $msg ));
+                }
+
+            }else{
+                $msg="Username sudah ada";
+                $this->response(array('status' => 'gagal', 'result' => $data, 'message' => $msg));
             }
+                
+            
         }
 
         public function index_put()
@@ -39,10 +55,11 @@
                 $this->db->where('id_user', $id_user);
                 $update = $this->db->update('tbl_user', $data);
                 if ($update) {
-                     $this->response(array('status' => 'sukses', 'result' => $data, 'message' => 'Berhasil'), 200);
+                    $this->response(array('status' => 'sukses', 'result' => $data, 'message' => 'Data berhasil diubah'));
                 } else {
-                    $this->response(array('status' => 'fail', 502));
-            }
+                    $this->response(array('status' => 'gagal', 'result' => $data, 'message' => 'Data gagal diubah'));
+                }
+                
         }
 
     }

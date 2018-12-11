@@ -18,9 +18,9 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="example">
                                 <thead>
                                     <tr>
-                                        <th>Nama Wisata</th>
+                                        <th width="200">Nama Wisata</th>
                                         <th>Alamat</th>
-                                        <th>Deskripsi</th>
+                                        <!-- <th>Deskripsi</th> -->
                                         <th>Longitude</th>
                                         <th>Latitude</th>
                                         <th>Image</th>
