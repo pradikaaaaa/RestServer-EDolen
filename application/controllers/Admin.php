@@ -16,6 +16,24 @@
             $this->load->view('admin/index');
         }
 
+        public function update(){
+        $this->load->helper('url','form');
+        $this->load->library('form_validation');
+
+        $this->form_validation->set_rules('judul','Judul','trim|required');
+        
+        $this->load->model('post_model');
+        $isi['review']=$this->post_model->getReview($id);
+        
+        if($this->form_validation->run() == FALSE) {
+            $this->load->view('user/updatereview',$isi);
+        } else {
+                //$data = array('upload_data' => $this->upload->data());
+                $this->post_model->updateReview($id);
+                $this->load->view('user/review_sukses');
+            }
+        }
+
         public function data_server()
         {
             $this->load->library('Datatables');
