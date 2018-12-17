@@ -4,7 +4,7 @@
     	<div class="panel-heading">Tambah Review</div>
     		<div class="panel-body">
 
-	    		<?php echo form_open_multipart('post/updatereview/'.$this->uri->segment(3)); ?>
+	    		<?php echo form_open_multipart('admin/updatereview/'.$this->uri->segment(3)); ?>
 	    		<?php echo validation_errors(); ?>
 				
 				
