@@ -27,7 +27,8 @@
             $data = array(
                 'id_user'           => $this->post('id_user'),
                 'id_wisata'         => $this->post('id_wisata'),
-                'komentar'          => $this->post('komentar'));
+                'komentar'          => $this->post('komentar'),
+                'tanggal'           => $this->post('tanggal'));
             $insert = $this->db->insert('tbl_komentar', $data);
             if ($insert) {
                 $this->response(array('status' => 'sukses', 'result' => $data));

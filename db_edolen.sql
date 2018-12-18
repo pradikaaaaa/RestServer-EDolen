@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12 Des 2018 pada 09.25
--- Versi Server: 10.1.26-MariaDB
--- PHP Version: 7.1.8
+-- Generation Time: Dec 18, 2018 at 01:13 PM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -25,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kategori`
+-- Table structure for table `tbl_kategori`
 --
 
 CREATE TABLE `tbl_kategori` (
@@ -35,7 +33,7 @@ CREATE TABLE `tbl_kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbl_kategori`
+-- Dumping data for table `tbl_kategori`
 --
 
 INSERT INTO `tbl_kategori` (`id_kategori`, `kategori_wisata`, `image`) VALUES
@@ -47,7 +45,87 @@ INSERT INTO `tbl_kategori` (`id_kategori`, `kategori_wisata`, `image`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_user`
+-- Table structure for table `tbl_komentar`
+--
+
+CREATE TABLE `tbl_komentar` (
+  `id_komentar` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `id_wisata` int(11) NOT NULL,
+  `komentar` text NOT NULL,
+  `tanggal` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_komentar`
+--
+
+INSERT INTO `tbl_komentar` (`id_komentar`, `id_user`, `id_wisata`, `komentar`, `tanggal`) VALUES
+(1, 1, 13, 'Suls Gaming OP!', '12-12-2018'),
+(2, 2, 5, 'Halo halo sub guys betemu lagi dengan suls gaming', ''),
+(3, 1, 5, 'Wwokwkowkoaokfokskldfmldskmgdfigfdiomdfiovmfiovmdfiovmfio', '22-11-2015'),
+(4, 2, 5, 'Villa Songgoriti', '12-11-2018'),
+(5, 7, 7, 'Bagus gan', '12-12-2019'),
+(6, 7, 7, 'Bagus gan', '12-12-2019'),
+(7, 7, 7, 'sorry guys', '12-12-2019'),
+(8, 7, 8, 'Menarik', '12-12-2019'),
+(9, 7, 8, 'Menarik', '12-12-2019'),
+(10, 7, 9, 'ak cinta kalian', '12-12-2019'),
+(11, 7, 7, 'Awesome', '12-12-2019'),
+(12, 7, 7, 'Perfecto Nono', '12-12-2019'),
+(13, 7, 11, 'keren', '12-12-2019'),
+(14, 7, 11, 'keren', '12-12-2019'),
+(15, 7, 11, 'keren', '12-12-2019'),
+(16, 7, 16, 'HIYAHIYA', '12-12-2019'),
+(17, 7, 12, 'ihihi', '12-12-2019'),
+(18, 7, 7, 'hehe', '12-12-2019'),
+(19, 7, 7, 'hehe', '12-12-2019'),
+(20, 7, 12, 'hehe', '12-12-2019'),
+(21, 7, 12, 'hai', '12-12-2019'),
+(22, 7, 12, 'hai', '12-12-2019'),
+(23, 7, 12, 'hai', '12-12-2019'),
+(24, 7, 12, 'hai', '12-12-2019'),
+(25, 7, 12, 'hai', '12-12-2019'),
+(26, 7, 12, 'hai', '12-12-2019'),
+(27, 7, 12, 'hai', '12-12-2019'),
+(28, 7, 12, 'hai', '12-12-2019'),
+(29, 7, 12, 'hai', '12-12-2019'),
+(30, 7, 12, 'hai', '12-12-2019'),
+(31, 7, 12, 'hai', '12-12-2019'),
+(32, 7, 12, 'halo', '12-12-2019'),
+(33, 7, 12, 'halo', '12-12-2019'),
+(34, 7, 21, 'dingin', '12-12-2019'),
+(35, 7, 21, 'dingin', '12-12-2019'),
+(36, 7, 21, '', '12-12-2019'),
+(37, 7, 21, '', '12-12-2019'),
+(38, 7, 21, 'hehe', '12-12-2019'),
+(39, 7, 21, 'hehe', '12-12-2019'),
+(40, 7, 18, 'slamet', '12-12-2019'),
+(41, 7, 18, 'slamet', '12-12-2019'),
+(42, 7, 18, 'slamet', '12-12-2019'),
+(43, 7, 18, 'slamet', '12-12-2019'),
+(44, 7, 14, 'keren gan', '12-12-2019'),
+(45, 7, 14, 'keren gan', '12-12-2019'),
+(46, 7, 24, 'dinging gan', '17 Dec 2018'),
+(47, 7, 24, 'dinging gan', '17 Dec 2018'),
+(48, 7, 24, 'dinging gan', '17 Dec 2018'),
+(49, 7, 24, 'dinging gan', '17 Dec 2018'),
+(50, 7, 24, 'dinging gan', '17 Dec 2018'),
+(51, 7, 5, 'hiyahiya', '17 Dec 2018'),
+(52, 7, 5, 'hiyahiya', '17 Dec 2018'),
+(53, 7, 5, 'hiyahiya', '17 Dec 2018'),
+(54, 7, 5, 'hiyahiyaasdasd', '17 Dec 2018'),
+(55, 7, 5, 'hiyahiyaasdasda', '17 Dec 2018'),
+(56, 7, 9, 'hore', '17 Dec 2018'),
+(57, 7, 9, 'hore', '17 Dec 2018'),
+(58, 7, 9, 'hore', '17 Dec 2018'),
+(59, 7, 9, 'hore', '17 Dec 2018'),
+(60, 7, 9, 'hore', '17 Dec 2018');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_user`
 --
 
 CREATE TABLE `tbl_user` (
@@ -55,26 +133,25 @@ CREATE TABLE `tbl_user` (
   `username` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `nama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tanggal_lahir` date DEFAULT NULL,
   `status` enum('admin','user') COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbl_user`
+-- Dumping data for table `tbl_user`
 --
 
-INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `nama`, `tanggal_lahir`, `status`) VALUES
-(1, 'admin', 'admin', 'adminstrator', NULL, 'admin'),
-(2, 'dio', 'dio', 'Dio Syahrizal', '1998-05-09', 'user'),
-(3, 'ssdd', 'ddd', 'Ganteng', NULL, 'user'),
-(4, 'kris', '123', 'Sulis', NULL, 'user'),
-(6, 'Naufal', 'Naufal', 'Naufal', NULL, 'user'),
-(7, 'yahuya', 'yahuya', 'Pradika', NULL, 'user');
+INSERT INTO `tbl_user` (`id_user`, `username`, `password`, `nama`, `status`) VALUES
+(1, 'admin', 'admin', 'adminstrator', 'admin'),
+(2, 'dio', 'dio', 'Dio Syahrizal', 'user'),
+(3, 'ssdd', 'ddd', 'Ganteng', 'user'),
+(4, 'kris', '123', 'Sulis', 'user'),
+(6, 'Naufal', 'Naufal', 'Naufal', 'user'),
+(7, 'yahuya', 'yahuya', 'Pradika', 'user');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_wisata`
+-- Table structure for table `tbl_wisata`
 --
 
 CREATE TABLE `tbl_wisata` (
@@ -89,7 +166,7 @@ CREATE TABLE `tbl_wisata` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data untuk tabel `tbl_wisata`
+-- Dumping data for table `tbl_wisata`
 --
 
 INSERT INTO `tbl_wisata` (`id_wisata`, `nama_wisata`, `id_kategori`, `alamat`, `deskripsi`, `longitude`, `latitude`, `image`) VALUES
@@ -123,6 +200,12 @@ ALTER TABLE `tbl_kategori`
   ADD PRIMARY KEY (`id_kategori`);
 
 --
+-- Indexes for table `tbl_komentar`
+--
+ALTER TABLE `tbl_komentar`
+  ADD PRIMARY KEY (`id_komentar`);
+
+--
 -- Indexes for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -145,6 +228,11 @@ ALTER TABLE `tbl_wisata`
 ALTER TABLE `tbl_kategori`
   MODIFY `id_kategori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
+-- AUTO_INCREMENT for table `tbl_komentar`
+--
+ALTER TABLE `tbl_komentar`
+  MODIFY `id_komentar` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
+--
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
@@ -155,15 +243,14 @@ ALTER TABLE `tbl_user`
 ALTER TABLE `tbl_wisata`
   MODIFY `id_wisata` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `tbl_wisata`
+-- Constraints for table `tbl_wisata`
 --
 ALTER TABLE `tbl_wisata`
   ADD CONSTRAINT `fk_KategoriWisata` FOREIGN KEY (`id_kategori`) REFERENCES `tbl_kategori` (`id_kategori`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
