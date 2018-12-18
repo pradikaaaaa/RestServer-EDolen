@@ -87,7 +87,7 @@
                             <a href="<?=site_url('dashboard/')?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-send-o fa-fw"></i> Management Wisata<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-map-marker fa-fw"></i> Management Wisata<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="">Kategori Wisata</a>

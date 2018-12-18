@@ -7,7 +7,7 @@
 <!-- Metis Menu Plugin JavaScript -->
 <script src="<?=base_url()?>assets/vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- <script src="<?=base_url()?>assets/ckeditor/ckeditor.js"></script> -->
+<script src="<?=base_url()?>assets/ckeditor/ckeditor.js"></script>
 
 <!-- Morris Charts JavaScript -->
 <!--
