@@ -50,8 +50,7 @@
             $data = array(
                 'username'          => $this->put('username'),
                 'password'          => $this->put('password'),
-                'nama'              => $this->put('nama'),
-                'tanggal_lahir'     => $this->put('tanggal_lahir'));
+                'nama'              => $this->put('nama'));
                 $this->db->where('id_user', $id_user);
                 $update = $this->db->update('tbl_user', $data);
                 if ($update) {
